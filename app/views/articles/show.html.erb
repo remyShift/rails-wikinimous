@@ -1,0 +1,15 @@
+<%= render "header" %>
+
+<div class="flex flex-col items-center justify-center flex-wrap gap-4 mt-3">
+  <div class="w-1/2 p-4">
+    <h1 class="text-2xl font-bold"><%= @article.title %></h1>
+    <%= link_to edit_article_path(@article), class: "text-blue-500" do %>
+      <i class="fa-solid fa-pencil"></i>
+    <% end %>
+    <%= link_to article_path(@article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "text-red-500" do %>
+      <i class="fa-solid fa-trash"></i>
+    <% end %>
+    <div class="h-[1px] bg-slate-200 my-4"></div>
+    <p class="truncate"><%= @article.content %></p>
+  </div>
+</div>
